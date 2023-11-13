@@ -18,10 +18,7 @@ const AppNavigator = () => {
       <Stack.Screen name="Topics" component={TopicScreen} options={{ headerShown: false }} />
       <Stack.Screen name="Numbers1_4" component={NumbersWordsScreen} options={{ headerShown: false }} />
       <Stack.Screen name="Quiz" component={QuizScreen} options={{ headerShown: false }} />
-      <Stack.Screen
-        name="Results"
-        component={ResultsScreen}
-        options={{ headerShown: false }}
+      <Stack.Screen name="Results" component={ResultsScreen} options={{ headerShown: false }}
       />
     </Stack.Navigator>
   );
