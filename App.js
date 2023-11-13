@@ -28,10 +28,24 @@ function OptionsScreen({ navigation }) {
   );
 }
 
+function NumbersWordsScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>List of Words:</Text>
+      <Text>isa = one</Text>
+      <Text>dalawa = two</Text>
+      <Text>tatlo = three</Text>
+      <Text>apat = four</Text>
+      <Button title="Go back to Topics" onPress={() => navigation.navigate('Game')} />
+    </View>
+  ); 
+}
+
 function GameScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Choose a Topic:</Text>
+      <Button title="Numbers 1-4" onPress={() => navigation.navigate('Numbers1_4')} />
       <Button title="Go back to Home" onPress={() => navigation.navigate('Home')} />
     </View>
   ); 
@@ -46,7 +60,8 @@ function App() {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Options" component={OptionsScreen} />
         <Stack.Screen name="Game" component={GameScreen} />
-      </Stack.Navigator>
+        <Stack.Screen name="Numbers1_4" component={NumbersWordsScreen} />
+       </Stack.Navigator>
     </NavigationContainer>
   );
 }
