@@ -1,43 +1,48 @@
 import React, { useState } from 'react';
 import { View, Text, Button } from 'react-native';
+import { useRoute } from '@react-navigation/native';
 
-const QuizScreen = () => {
+function QuizScreen ({ navigation }) { 
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [score, setScore] = useState(0);
+  const [score, updateScore] = useState(0);
 
   const questions = [
     {
       question: 'What is one in Tagalog?',
       options: ['isa', 'dalawa', 'apat', 'tatlo'],
       correctAnswer: 'isa',
+      vocabWord: 'isa',
     },
     {
       question: 'What does tatlo mean?',
       options: ['one', 'two', 'three', 'four'],
       correctAnswer: 'three',
+      vocabWord: 'tatlo',
     },
     {
       question: 'What is four in Tagalog?',
       options: ['dalawa', 'apat', 'isa', 'tatlo'],
       correctAnswer: 'apat',
+      vocabWord: 'apat',
     },
     {
       question: 'What does dalawa mean?',
       options: ['one', 'two', 'three', 'four'],
       correctAnswer: 'two',
+      vocabWord: 'dalawa',
     },
   ];
 
   const handleAnswer = (answer) => {
     const isCorrect = answer === questions[currentQuestion].correctAnswer;
     if (isCorrect) {
-      setScore(score + 1);
+      updateScore(score + 1);
     }
-    const nextQuestion = currentQuestion + 1;
+    nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
     } else {
-      // Quiz is over
+      navigation.navigate('Results', { score })
     }
   };
 

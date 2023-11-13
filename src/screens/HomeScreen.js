@@ -4,7 +4,7 @@ import { Button, View, Text } from 'react-native';
 function HomeScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
+      <Text>Welcome to Madali Study!</Text>
       <Button
         title="Start Game"
         onPress={() => navigation.navigate('Topics')}

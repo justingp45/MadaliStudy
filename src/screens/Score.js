@@ -1,11 +1,13 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
+import { useRoute } from '@react-navigation/native';
 
-const ResultsScreen = ({ score, restartQuiz }) => {
+function ResultsScreen ({ navigation }) { 
+  const route = useRoute();
+  const score = route.params?.score
   return (
-    <View>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Your score is: {score}</Text>
-      <Button title="Restart Quiz" onPress={restartQuiz} />
       <Button title="Go back to Topics" onPress={() => navigation.navigate('Topics')} />
     </View>
   );
