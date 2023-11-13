@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Button } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 
-function QuizScreen ({ navigation }) { 
+function NumberQuizScreen ({ navigation }) { 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, updateScore] = useState(0);
   const [count, updateCount] = useState(0);
@@ -77,4 +77,4 @@ function QuizScreen ({ navigation }) {
   );
 };
 
-export default QuizScreen;
+export default NumberQuizScreen;
