@@ -61,23 +61,18 @@ function QuizScreen ({ navigation }) {
     nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
-    } else {
+    }
+    if (count == questions.length) {
       navigation.navigate('Results', { score, word1, word2, word3, word4 })
     }
   };
 
   return (
-    <View>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>{questions[currentQuestion].question}</Text>
       {questions[currentQuestion].options.map((option, index) => (
         <Button key={index} title={option} onPress={() => handleAnswer(option)} />
       ))}
-      <Text>Score: {score}</Text>
-      <Text>count value: {count}</Text>
-      <Text>word1: {word1}</Text>
-      <Text>word2: {word2}</Text>
-      <Text>word3: {word3}</Text>
-      <Text>word4: {word4}</Text>
     </View>
   );
 };
