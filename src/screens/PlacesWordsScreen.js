@@ -1,29 +1,23 @@
 import * as React from 'react';
 import { StyleSheet, SafeAreaView, Button, View, Text, TouchableOpacity } from 'react-native';
 
-function TopicScreen({ navigation }) {
+function PlacesWordsScreen({ navigation }) {
     return (
       <SafeAreaView style={styles.regular}>
-        <Text style={styles.title}>Choose a Topic:</Text>
+        <Text style={styles.title}>List of Words:</Text>
+        <Text style={styles.title}>Bahay = Home</Text>
+        <Text style={styles.title}>Banyo = Restroom</Text>
+        <Text style={styles.title}>Paliparan = Airport</Text>
+        <Text style={styles.title}>Paradahan = Parking Lot</Text>
         <TouchableOpacity 
         style={styles.button}
-        onPress={() => navigation.navigate('Numbers1_4')} >
-        <Text style={styles.text}>Numbers 1-4</Text>
+        onPress={() => navigation.navigate('PlacesQuiz')} >
+        <Text style={styles.text}>Start Quiz</Text>
         </TouchableOpacity>
         <TouchableOpacity 
         style={styles.button}
-        onPress={() => navigation.navigate('Phrases')} >
-        <Text style={styles.text}>Basic Phrases</Text>
-        </TouchableOpacity>
-        <TouchableOpacity 
-        style={styles.button}
-        onPress={() => navigation.navigate('Places')} >
-        <Text style={styles.text}>Places</Text>
-        </TouchableOpacity>
-        <TouchableOpacity 
-        style={styles.button}
-        onPress={() => navigation.navigate('Home')} >
-        <Text style={styles.text}>Go back to Home</Text>
+        onPress={() => navigation.navigate('Topics')} >
+        <Text style={styles.text}>Go back to Topics</Text>
         </TouchableOpacity>
       </SafeAreaView>
     ); 
@@ -50,5 +44,5 @@ function TopicScreen({ navigation }) {
       color: "white"
     }
   });
-  
-export default TopicScreen;
+
+export default PlacesWordsScreen;
