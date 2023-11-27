@@ -4,7 +4,7 @@ import { StyleSheet, SafeAreaView, Button, View, Text, TouchableOpacity } from '
 function HomeScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.regular}>
-      <Text>Welcome to Madali Study!</Text>
+      <Text style={styles.title}>Welcome to Madali Study!</Text>
       <TouchableOpacity 
         style={styles.button}
         onPress={() => navigation.navigate('Topics')} >
@@ -30,6 +30,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginHorizontal: 16,
+  },
+  title: {
+    fontWeight: 'bold',
+    fontSize: 22
   },
   button: {
     marginTop: 10,

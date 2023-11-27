@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { StyleSheet, SafeAreaView, Button, View, Text, TouchableOpacity } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 
 function ResultsScreen ({ navigation }) { 
@@ -10,16 +10,47 @@ function ResultsScreen ({ navigation }) {
   const word3 = route.params?.word3
   const word4 = route.params?.word4
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Your score is: {score}</Text>
-      <Text>Results:</Text>
-      <Text>{word1}</Text>
-      <Text>{word2}</Text>
-      <Text>{word3}</Text>
-      <Text>{word4}</Text>
-      <Button title="Go back to Topics" onPress={() => navigation.navigate('Topics')} />
-    </View>
+    <SafeAreaView style={styles.regular}>
+      <Text style={styles.title}>Your score is: {score}</Text>
+      <Text> </Text>
+      <Text style={styles.title}>Results:</Text>
+      <Text style={styles.study}>{word1}</Text>
+      <Text style={styles.study}>{word2}</Text>
+      <Text style={styles.study}>{word3}</Text>
+      <Text style={styles.study}>{word4}</Text>
+      <TouchableOpacity 
+        style={styles.button}
+        onPress={() => navigation.navigate('Topics')} >
+        <Text style={styles.text}>Go back to Topics</Text>
+      </TouchableOpacity>
+    </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  regular: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal: 16,
+  },
+  title: {
+    fontWeight: 'bold',
+    fontSize: 22
+  },
+  study: {
+    fontStyle: 'italic',
+    fontSize: 16
+  },
+  button: {
+    marginTop: 10,
+    alignItems: "center",
+    backgroundColor: "#0BB3FC",
+    padding: 12
+  },
+  text: {
+    color: "white"
+  }
+});
 
 export default ResultsScreen;

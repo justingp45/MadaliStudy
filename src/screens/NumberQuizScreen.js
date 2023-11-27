@@ -72,7 +72,7 @@ function NumberQuizScreen ({ navigation }) {
 
   return (
     <SafeAreaView style={styles.regular}>
-      <Text>{questions[currentQuestion].question}</Text>
+      <Text style={styles.title}>{questions[currentQuestion].question}</Text>
       {questions[currentQuestion].options.map((option, index) => (
         <TouchableOpacity 
         style={styles.button} 
@@ -92,6 +92,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginHorizontal: 16,
+  },
+  title: {
+    fontWeight: 'bold',
+    fontSize: 18
   },
   button: {
     marginTop: 10,
