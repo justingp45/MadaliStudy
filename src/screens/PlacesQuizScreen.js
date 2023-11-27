@@ -14,7 +14,7 @@ function PlacesQuizScreen ({ navigation }) {
   const questions = [
     {
       question: 'What is parking lot in Tagalog?',
-      options: ['Paradahan', 'Bahay', 'Bahay', 'Paliparan'],
+      options: ['Paradahan', 'Bahay', 'Banyo', 'Paliparan'],
       correctAnswer: 'Paradahan',
       vocabWord: 'Paradahan',
     },
