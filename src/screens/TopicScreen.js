@@ -12,6 +12,11 @@ function TopicScreen({ navigation }) {
         </TouchableOpacity>
         <TouchableOpacity 
         style={styles.button}
+        onPress={() => navigation.navigate('Phrases')} >
+        <Text style={styles.text}>Basic Phrases</Text>
+        </TouchableOpacity>
+        <TouchableOpacity 
+        style={styles.button}
         onPress={() => navigation.navigate('Home')} >
         <Text style={styles.text}>Go back to Home</Text>
         </TouchableOpacity>
