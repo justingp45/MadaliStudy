@@ -6,6 +6,7 @@ function NumbersLongQuizScreen ({ navigation }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, updateScore] = useState(0);
   const [count, updateCount] = useState(0);
+  const [questionCount, updateQuestionCount] = useState(0);
   const [word1, updateWord1] = useState("You got isa correct!");
   const [word2, updateWord2] = useState("You got dalawa correct!");
   const [word3, updateWord3] = useState("You got tatlo correct!");
@@ -65,6 +66,7 @@ function NumbersLongQuizScreen ({ navigation }) {
   const checkAnswer = (answer) => {
     const isCorrect = answer === questions[currentQuestion].correctAnswer;
     updateCount(count + 1);
+    updateQuestionCount(questions.length);
     if (isCorrect) {
       updateScore(score + 1);
     }
@@ -102,7 +104,7 @@ function NumbersLongQuizScreen ({ navigation }) {
       setCurrentQuestion(nextQuestion);
     }
     if (count == questions.length) {
-      navigation.navigate('Results', { score, word1, word2, word3, word4 })
+      navigation.navigate('Results', { questionCount, score, word1, word2, word3, word4 })
     }
   };
 

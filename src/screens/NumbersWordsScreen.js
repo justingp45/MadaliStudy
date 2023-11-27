@@ -12,12 +12,12 @@ function NumbersWordsScreen({ navigation }) {
         <TouchableOpacity 
         style={styles.button}
         onPress={() => navigation.navigate('NumberQuiz')} >
-        <Text style={styles.text}>Start 4? Quiz</Text>
+        <Text style={styles.text}>Start 4?s Quiz</Text>
         </TouchableOpacity>
         <TouchableOpacity 
         style={styles.button}
         onPress={() => navigation.navigate('NumberLongQuiz')} >
-        <Text style={styles.text}>Start 8? Quiz</Text>
+        <Text style={styles.text}>Start 8?s Quiz</Text>
         </TouchableOpacity>
         <TouchableOpacity 
         style={styles.button}

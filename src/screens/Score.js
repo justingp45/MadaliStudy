@@ -4,6 +4,7 @@ import { useRoute } from '@react-navigation/native';
 
 function ResultsScreen ({ navigation }) { 
   const route = useRoute();
+  const questionCount = route.params?.questionCount
   const score = route.params?.score
   const word1 = route.params?.word1
   const word2 = route.params?.word2
@@ -11,7 +12,7 @@ function ResultsScreen ({ navigation }) {
   const word4 = route.params?.word4
   return (
     <SafeAreaView style={styles.regular}>
-      <Text style={styles.title}>Your score is: {score}</Text>
+      <Text style={styles.title}>Your score is: {score} / {questionCount}</Text>
       <Text> </Text>
       <Text style={styles.title}>Results:</Text>
       <Text style={styles.study}>{word1}</Text>

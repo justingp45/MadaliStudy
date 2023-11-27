@@ -2,40 +2,64 @@ import React, { useState } from 'react';
 import { StyleSheet, SafeAreaView, Button, View, Text, TouchableOpacity } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 
-function PhrasesQuizScreen ({ navigation }) { 
+function PhrasesLongQuizScreen ({ navigation }) { 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, updateScore] = useState(0);
   const [count, updateCount] = useState(0);
   const [questionCount, updateQuestionCount] = useState(0);
   const [word1, updateWord1] = useState("You got Kamusta ka correct!");
-  const [word2, updateWord2] = useState("You got Oo correct!");
-  const [word3, updateWord3] = useState("You got Hindi correct!");
-  const [word4, updateWord4] = useState("You got Salamat correct!");
+  const [word2, updateWord2] = useState("You got Salamat correct!");
+  const [word3, updateWord3] = useState("You got Oo correct!");
+  const [word4, updateWord4] = useState("You got Hindi correct!");
 
   const questions = [
     {
-      question: 'What is \"How are you?\" in Tagalog?',
-      options: ['Salamat', 'Kamusta ka', 'Hindi', 'Oo'],
-      correctAnswer: 'Kamusta ka',
-      vocabWord: 'Kamusta ka',
-    },
-    {
-      question: 'What does Oo mean?',
-      options: ['No', 'How are you', 'Yes', 'Thank you'],
-      correctAnswer: 'Yes',
+      question: 'What is yes in Tagalog?',
+      options: ['Salamat', 'Oo', 'Hindi', 'Kamusta ka'],
+      correctAnswer: 'Oo',
       vocabWord: 'Oo',
     },
     {
-      question: 'What is no in Tagalog?',
-      options: ['Hindi', 'Oo', 'Salamat', 'Kamusta ka'],
+      question: 'What does Salamat mean?',
+      options: ['Thank you', 'How are you', 'Yes', 'No'],
+      correctAnswer: 'Thank you',
+      vocabWord: 'Salamat',
+    },
+    {
+      question: 'What does \"Kamusta ka\" mean?',
+      options: ['Yes', 'Thank you', 'No', 'How are you'],
+      correctAnswer: 'How are you',
+      vocabWord: 'Kamusta ka',
+    },
+    {
+      question: 'What is \"Thank you\" in Tagalog?',
+      options: ['Salamat', 'Kamusta ka', 'Oo', 'Hindi'],
+      correctAnswer: 'Salamat',
+      vocabWord: 'Salamat',
+    },
+    {
+      question: 'What does Hindi mean?',
+      options: ['Yes', 'Thank you', 'No', 'How are you'],
+      correctAnswer: 'No',
+      vocabWord: 'Hindi',
+    },
+    {
+      question: 'What is No in Tagalog?',
+      options: ['Kamusta ka', 'Oo', 'Salamat', 'Hindi'],
       correctAnswer: 'Hindi',
       vocabWord: 'Hindi',
     },
     {
-      question: 'What does Salamat mean?',
-      options: ['Thank you', 'No', 'How are you', 'Yes'],
-      correctAnswer: 'Thank you',
-      vocabWord: 'Salamat',
+      question: 'What does Oo mean?',
+      options: ['No', 'How are you', 'Thank you', 'Yes'],
+      correctAnswer: 'Yes',
+      vocabWord: 'Oo',
+    },
+    {
+      question: 'What is \"How are you?\" in Tagalog?',
+      options: ['Kamusta ka', 'Salamat', 'Oo', 'Hindi'],
+      correctAnswer: 'Kamusta ka',
+      vocabWord: 'Kamusta ka',
     },
   ];
 
@@ -48,16 +72,28 @@ function PhrasesQuizScreen ({ navigation }) {
     }
     if (!isCorrect) {
         if (count == 0){
-          updateWord1("You need to study Kamusta ka!");
+          updateWord3("You need to study Oo!");
         }
         if (count == 1){
-          updateWord2("You need to study Oo!");
+          updateWord2("You need to study Salamat!");
         }
         if (count == 2){
-          updateWord3("You need to study Hindi!");
+          updateWord1("You need to study Kamusta ka!");
         }
         if (count == 3){
-          updateWord4("You need to study Salamat!");
+          updateWord2("You need to study Salamat!");
+        }
+        if (count == 4){
+          updateWord4("You need to study Hindi!");
+        }
+        if (count == 5){
+          updateWord4("You need to study Hindi!");
+        }
+        if (count == 6){
+          updateWord3("You need to study Oo!");
+        }
+        if (count == 7){
+          updateWord1("You need to study Kamusta ka!");
         }
     }
     nextQuestion = currentQuestion + 1;
@@ -110,4 +146,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default PhrasesQuizScreen;
+export default PhrasesLongQuizScreen;
