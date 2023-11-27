@@ -13,6 +13,7 @@ import PlacesWordsScreen from '../screens/PlacesWordsScreen';
 import PlacesQuizScreen from '../screens/PlacesQuizScreen';
 import NumbersLongQuizScreen from '../screens/NumbersLongQuizScreen';
 import PhrasesLongQuizScreen from '../screens/PhrasesLongQuizScreen';
+import PlacesLongQuizScreen from '../screens/PlacesLongQuizScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +31,7 @@ const AppNavigator = () => {
       <Stack.Screen name="PhrasesLongQuiz" component={PhrasesLongQuizScreen} options={{ headerShown: false }} />
       <Stack.Screen name="Places" component={PlacesWordsScreen} options={{ headerShown: false }} />
       <Stack.Screen name="PlacesQuiz" component={PlacesQuizScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="PlacesLongQuiz" component={PlacesLongQuizScreen} options={{ headerShown: false }} />
       <Stack.Screen name="Results" component={ResultsScreen} options={{ headerShown: false }}
       />
     </Stack.Navigator>
