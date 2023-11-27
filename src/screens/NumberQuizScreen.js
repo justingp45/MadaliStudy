@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Button } from 'react-native';
+import { StyleSheet, SafeAreaView, Button, View, Text, TouchableOpacity } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 
 function NumberQuizScreen ({ navigation }) { 
@@ -38,7 +38,7 @@ function NumberQuizScreen ({ navigation }) {
     },
   ];
 
-  const handleAnswer = (answer) => {
+  const checkAnswer = (answer) => {
     const isCorrect = answer === questions[currentQuestion].correctAnswer;
     updateCount(count + 1);
     if (isCorrect) {
@@ -59,6 +59,9 @@ function NumberQuizScreen ({ navigation }) {
         }
     }
     nextQuestion = currentQuestion + 1;
+  };
+
+  const checkNav = () => {
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
     }
@@ -68,13 +71,37 @@ function NumberQuizScreen ({ navigation }) {
   };
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <SafeAreaView style={styles.regular}>
       <Text>{questions[currentQuestion].question}</Text>
       {questions[currentQuestion].options.map((option, index) => (
-        <Button key={index} title={option} onPress={() => handleAnswer(option)} />
+        <TouchableOpacity 
+        style={styles.button} 
+        key={index} 
+        title={option} 
+        onPress={() => {checkAnswer(option); checkNav(); }} >
+        <Text style={styles.text}>{option}</Text>
+        </TouchableOpacity>
       ))}
-    </View>
+    </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  regular: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal: 16,
+  },
+  button: {
+    marginTop: 10,
+    alignItems: "center",
+    backgroundColor: "#0BB3FC",
+    padding: 12
+  },
+  text: {
+    color: "white"
+  }
+});
 
 export default NumberQuizScreen;

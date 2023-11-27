@@ -5,19 +5,16 @@ function HomeScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.regular}>
       <Text>Welcome to Madali Study!</Text>
-      <Text></Text>
       <TouchableOpacity 
         style={styles.button}
         onPress={() => navigation.navigate('Topics')} >
         <Text style={styles.text}>Start Game</Text>
       </TouchableOpacity>
-      <Text></Text>
       <TouchableOpacity 
         style={styles.button}
         onPress={() => navigation.navigate('Options')} >
         <Text style={styles.text}>Options</Text>
       </TouchableOpacity>
-      <Text></Text>
       <TouchableOpacity 
         style={styles.button}
         onPress={() => navigation.navigate('About')} >
@@ -35,9 +32,10 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
   },
   button: {
+    marginTop: 10,
     alignItems: "center",
     backgroundColor: "#0BB3FC",
-    padding: 10
+    padding: 12
   },
   text: {
     color: "white"
