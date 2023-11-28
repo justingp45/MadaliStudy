@@ -1,10 +1,30 @@
 import * as React from 'react';
-import { StyleSheet, SafeAreaView, Image, Button, View, Text, TouchableOpacity } from 'react-native';
+import { Alert, StyleSheet, SafeAreaView, Image, Button, View, Text, TouchableOpacity } from 'react-native';
 import flag from '../../assets/images/flag.png'
 
 // image from https://www.stockio.com/free-clipart/flag-of-the-philippines
 
 function HomeScreen({ navigation }) {
+  const alertTest = () => {
+    Alert.alert(
+      // title
+      'Shake detected',
+      // text
+      'Do you want to return to the Topics screen? You will lose your results.',
+      [
+        {
+          text: 'Yes',
+          onPress: () => navigation.navigate('Topics')
+        },
+        {
+          text: 'No',
+          onPress: () => console.log('No') ,style: 'cancel'
+        },
+      ],
+      {cancelable: false},
+    );
+  };
+  
   return (
     <SafeAreaView style={styles.regular}>
       <Text style={styles.title}>Welcome to Madali Study!</Text>
@@ -21,6 +41,11 @@ function HomeScreen({ navigation }) {
         style={styles.button}
         onPress={() => navigation.navigate('About')} >
         <Text style={styles.textButton}>About Me</Text>
+      </TouchableOpacity>
+      <TouchableOpacity 
+        style={styles.button}
+        onPress={() => alertTest()} >
+        <Text style={styles.textButton}>Test</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );

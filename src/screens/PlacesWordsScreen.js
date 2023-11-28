@@ -11,6 +11,11 @@ function PlacesWordsScreen({ navigation }) {
         <Text style={styles.title}>Paradahan = Parking Lot</Text>
         <TouchableOpacity 
         style={styles.button}
+        onPress={() => navigation.navigate('PlacesAudio')} >
+        <Text style={styles.textButton}>Hear Audio</Text>
+        </TouchableOpacity>
+        <TouchableOpacity 
+        style={styles.button}
         onPress={() => navigation.navigate('PlacesQuiz')} >
         <Text style={styles.textButton}>Start 4?s Quiz</Text>
         </TouchableOpacity>

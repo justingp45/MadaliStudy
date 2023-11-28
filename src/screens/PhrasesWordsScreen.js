@@ -11,6 +11,11 @@ function PhrasesWordScreen({ navigation }) {
         <Text style={styles.title}>Hindi = no</Text>
         <TouchableOpacity 
         style={styles.button}
+        onPress={() => navigation.navigate('PhrasesAudio')} >
+        <Text style={styles.textButton}>Hear Audio</Text>
+        </TouchableOpacity>
+        <TouchableOpacity 
+        style={styles.button}
         onPress={() => navigation.navigate('PhrasesQuiz')} >
         <Text style={styles.textButton}>Start 4?s Quiz</Text>
         </TouchableOpacity>
