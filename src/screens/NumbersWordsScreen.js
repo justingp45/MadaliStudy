@@ -12,17 +12,17 @@ function NumbersWordsScreen({ navigation }) {
         <TouchableOpacity 
         style={styles.button}
         onPress={() => navigation.navigate('NumberQuiz')} >
-        <Text style={styles.text}>Start 4?s Quiz</Text>
+        <Text style={styles.textButton}>Start 4?s Quiz</Text>
         </TouchableOpacity>
         <TouchableOpacity 
         style={styles.button}
         onPress={() => navigation.navigate('NumberLongQuiz')} >
-        <Text style={styles.text}>Start 8?s Quiz</Text>
+        <Text style={styles.textButton}>Start 8?s Quiz</Text>
         </TouchableOpacity>
         <TouchableOpacity 
         style={styles.button}
         onPress={() => navigation.navigate('Topics')} >
-        <Text style={styles.text}>Go back to Topics</Text>
+        <Text style={styles.textButton}>Go back to Topics</Text>
         </TouchableOpacity>
       </SafeAreaView>
     ); 
@@ -35,9 +35,14 @@ function NumbersWordsScreen({ navigation }) {
       alignItems: 'center',
       marginHorizontal: 16,
     },
+    text: {
+      fontFamily: 'Futura',
+    },
     title: {
+      fontFamily: 'Futura',
       fontWeight: 'bold',
-      fontSize: 22
+      fontSize: 22,
+      textAlign: 'center'
     },
     button: {
       marginTop: 10,
@@ -45,7 +50,8 @@ function NumbersWordsScreen({ navigation }) {
       backgroundColor: "#0BB3FC",
       padding: 12
     },
-    text: {
+    textButton: {
+      fontFamily: 'Futura',
       color: "white"
     }
   });

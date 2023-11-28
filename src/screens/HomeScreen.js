@@ -1,19 +1,26 @@
 import * as React from 'react';
-import { StyleSheet, SafeAreaView, Button, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, SafeAreaView, Image, Button, View, Text, TouchableOpacity } from 'react-native';
+import flag from '../../assets/images/flag.png'
+
+// image from https://www.stockio.com/free-clipart/flag-of-the-philippines
 
 function HomeScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.regular}>
       <Text style={styles.title}>Welcome to Madali Study!</Text>
+      <Image
+        style={styles.image}
+        source={require('../../assets/images/flag.png')}
+      />
       <TouchableOpacity 
         style={styles.button}
         onPress={() => navigation.navigate('Topics')} >
-        <Text style={styles.text}>Start Game</Text>
+        <Text style={styles.textButton}>Start Game</Text>
       </TouchableOpacity>
       <TouchableOpacity 
         style={styles.button}
         onPress={() => navigation.navigate('About')} >
-        <Text style={styles.text}>About Me</Text>
+        <Text style={styles.textButton}>About Me</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -26,7 +33,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 16,
   },
+  text: {
+    fontFamily: 'Futura',
+  },
   title: {
+    fontFamily: 'Futura',
     fontWeight: 'bold',
     fontSize: 22
   },
@@ -36,8 +47,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#0BB3FC",
     padding: 12
   },
-  text: {
+  textButton: {
+    fontFamily: 'Futura',
     color: "white"
+  },
+  image: {
+    marginTop: 12,
+    marginBottom: 10,
+    width: 150,
+    height: 90,
   }
 });
 

@@ -117,7 +117,7 @@ function PlacesLongQuizScreen ({ navigation }) {
         key={index} 
         title={option} 
         onPress={() => {checkAnswer(option); checkNav(); }} >
-        <Text style={styles.text}>{option}</Text>
+        <Text style={styles.textButton}>{option}</Text>
         </TouchableOpacity>
       ))}
     </SafeAreaView>
@@ -125,25 +125,31 @@ function PlacesLongQuizScreen ({ navigation }) {
 };
 
 const styles = StyleSheet.create({
-  regular: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginHorizontal: 16,
-  },
-  title: {
-    fontWeight: 'bold',
-    fontSize: 18
-  },
-  button: {
-    marginTop: 10,
-    alignItems: "center",
-    backgroundColor: "#0BB3FC",
-    padding: 12
-  },
-  text: {
-    color: "white"
-  }
-});
+    regular: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginHorizontal: 16,
+    },
+    text: {
+      fontFamily: 'Futura',
+    },
+    title: {
+      fontFamily: 'Futura',
+      fontWeight: 'bold',
+      fontSize: 22,
+      textAlign: 'center'
+    },
+    button: {
+      marginTop: 10,
+      alignItems: "center",
+      backgroundColor: "#0BB3FC",
+      padding: 12
+    },
+    textButton: {
+      fontFamily: 'Futura',
+      color: "white"
+    }
+  });
 
 export default PlacesLongQuizScreen;

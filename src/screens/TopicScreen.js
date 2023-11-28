@@ -8,22 +8,22 @@ function TopicScreen({ navigation }) {
         <TouchableOpacity 
         style={styles.button}
         onPress={() => navigation.navigate('Numbers1_4')} >
-        <Text style={styles.text}>Numbers 1-4</Text>
+        <Text style={styles.textButton}>Numbers 1-4</Text>
         </TouchableOpacity>
         <TouchableOpacity 
         style={styles.button}
         onPress={() => navigation.navigate('Phrases')} >
-        <Text style={styles.text}>Basic Phrases</Text>
+        <Text style={styles.textButton}>Basic Phrases</Text>
         </TouchableOpacity>
         <TouchableOpacity 
         style={styles.button}
         onPress={() => navigation.navigate('Places')} >
-        <Text style={styles.text}>Places</Text>
+        <Text style={styles.textButton}>Places</Text>
         </TouchableOpacity>
         <TouchableOpacity 
         style={styles.button}
         onPress={() => navigation.navigate('Home')} >
-        <Text style={styles.text}>Go back to Home</Text>
+        <Text style={styles.textButton}>Go back to Home</Text>
         </TouchableOpacity>
       </SafeAreaView>
     ); 
@@ -36,7 +36,11 @@ function TopicScreen({ navigation }) {
       alignItems: 'center',
       marginHorizontal: 16,
     },
+    text: {
+      fontFamily: 'Futura',
+    },
     title: {
+      fontFamily: 'Futura',
       fontWeight: 'bold',
       fontSize: 22
     },
@@ -46,7 +50,8 @@ function TopicScreen({ navigation }) {
       backgroundColor: "#0BB3FC",
       padding: 12
     },
-    text: {
+    textButton: {
+      fontFamily: 'Futura',
       color: "white"
     }
   });

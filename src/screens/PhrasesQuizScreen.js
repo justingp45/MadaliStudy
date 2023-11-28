@@ -81,7 +81,7 @@ function PhrasesQuizScreen ({ navigation }) {
         key={index} 
         title={option} 
         onPress={() => {checkAnswer(option); checkNav(); }} >
-        <Text style={styles.text}>{option}</Text>
+        <Text style={styles.textButton}>{option}</Text>
         </TouchableOpacity>
       ))}
     </SafeAreaView>
@@ -95,9 +95,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 16,
   },
+  text: {
+    fontFamily: 'Futura',
+  },
   title: {
+    fontFamily: 'Futura',
     fontWeight: 'bold',
-    fontSize: 18
+    fontSize: 22,
+    textAlign: 'center'
   },
   button: {
     marginTop: 10,
@@ -105,7 +110,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#0BB3FC",
     padding: 12
   },
-  text: {
+  textButton: {
+    fontFamily: 'Futura',
     color: "white"
   }
 });

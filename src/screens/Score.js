@@ -22,7 +22,7 @@ function ResultsScreen ({ navigation }) {
       <TouchableOpacity 
         style={styles.button}
         onPress={() => navigation.navigate('Topics')} >
-        <Text style={styles.text}>Go back to Topics</Text>
+        <Text style={styles.textButton}>Go back to Topics</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -35,13 +35,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 16,
   },
+  text: {
+    fontFamily: 'Futura',
+  },
   title: {
+    fontFamily: 'Futura',
     fontWeight: 'bold',
     fontSize: 22
-  },
-  study: {
-    fontStyle: 'italic',
-    fontSize: 16
   },
   button: {
     marginTop: 10,
@@ -49,8 +49,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#0BB3FC",
     padding: 12
   },
-  text: {
+  textButton: {
+    fontFamily: 'Futura',
     color: "white"
+  },
+  study: {
+    fontFamily: 'Futura',
+    fontStyle: 'italic',
+    fontSize: 16
   }
 });
 
