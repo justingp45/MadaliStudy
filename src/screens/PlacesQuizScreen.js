@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, SafeAreaView, Button, View, Text, TouchableOpacity } from 'react-native';
+import { Alert, StyleSheet, SafeAreaView, Button, View, Text, TouchableOpacity } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 
 function PlacesQuizScreen ({ navigation }) { 
@@ -11,6 +11,26 @@ function PlacesQuizScreen ({ navigation }) {
   const [word2, updateWord2] = useState("You got Bahay correct!");
   const [word3, updateWord3] = useState("You got Banyo correct!");
   const [word4, updateWord4] = useState("You got Paliparan correct!");
+
+  const alertReturn = () => {
+    Alert.alert(
+      // title
+      'Return to Topics',
+      // text
+      'Do you want to return to the Topics screen? You will lose your results.',
+      [
+        {
+          text: 'Yes',
+          onPress: () => navigation.navigate('Topics')
+        },
+        {
+          text: 'No',
+          onPress: () => console.log('No') ,style: 'cancel'
+        },
+      ],
+      {cancelable: false},
+    );
+  };
 
   const questions = [
     {
@@ -84,6 +104,11 @@ function PlacesQuizScreen ({ navigation }) {
         <Text style={styles.textButton}>{option}</Text>
         </TouchableOpacity>
       ))}
+      <TouchableOpacity 
+        style={styles.returnButton}
+        onPress={() => alertReturn()} >
+        <Text style={styles.textButton}>Return to Topics</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };
@@ -106,6 +131,12 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 10,
+    alignItems: "center",
+    backgroundColor: "#0BB3FC",
+    padding: 12
+  },
+  returnButton: {
+    marginTop: 50,
     alignItems: "center",
     backgroundColor: "#0BB3FC",
     padding: 12
