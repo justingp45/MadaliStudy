@@ -5,7 +5,7 @@ import { useRoute } from '@react-navigation/native';
 function PlacesLongQuizScreen ({ navigation }) { 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, updateScore] = useState(0);
-  const [count, updateCount] = useState(0);
+  const [count, updateCount] = useState(1);
   const [questionCount, updateQuestionCount] = useState(0);
   const [word1, updateWord1] = useState("You got Bahay correct!");
   const [word2, updateWord2] = useState("You got Banyo correct!");
@@ -81,38 +81,44 @@ function PlacesLongQuizScreen ({ navigation }) {
       correctAnswer: 'Home',
       vocabWord: 'Bahay',
     },
+    {
+      question: 'Quiz finished!',
+      options: ['See results'],
+      correctAnswer: 'See results',
+      vocabWord: 'n/a',
+    },
   ];
 
   const checkAnswer = (answer) => {
     const isCorrect = answer === questions[currentQuestion].correctAnswer;
     updateCount(count + 1);
-    updateQuestionCount(questions.length);
+    updateQuestionCount(questions.length - 1);
     if (isCorrect) {
       updateScore(score + 1);
     }
     if (!isCorrect) {
-        if (count == 0){
-          updateWord4("You need to study Paradahan!");
-        }
         if (count == 1){
-          updateWord2("You need to study Banyo!");
+          updateWord4("You need to study Paradahan!");
         }
         if (count == 2){
-          updateWord4("You need to study Paradahan!");
+          updateWord2("You need to study Banyo!");
         }
         if (count == 3){
-          updateWord3("You need to study Paliparan!");
+          updateWord4("You need to study Paradahan!");
         }
         if (count == 4){
           updateWord3("You need to study Paliparan!");
         }
         if (count == 5){
-          updateWord1("You need to study Bahay!");
+          updateWord3("You need to study Paliparan!");
         }
         if (count == 6){
-          updateWord2("You need to study Banyo!");
+          updateWord1("You need to study Bahay!");
         }
         if (count == 7){
+          updateWord2("You need to study Banyo!");
+        }
+        if (count == 8){
           updateWord1("You need to study Bahay!");
         }
     }
