@@ -5,12 +5,12 @@ import { useRoute } from '@react-navigation/native';
 function PlacesQuizScreen ({ navigation }) { 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, updateScore] = useState(0);
-  const [count, updateCount] = useState(0);
+  const [count, updateCount] = useState(1);
   const [questionCount, updateQuestionCount] = useState(0);
-  const [word1, updateWord1] = useState("You got Paradahan correct!");
-  const [word2, updateWord2] = useState("You got Bahay correct!");
-  const [word3, updateWord3] = useState("You got Banyo correct!");
-  const [word4, updateWord4] = useState("You got Paliparan correct!");
+  const [word1, updateWord1] = useState("You got Bahay correct!");
+  const [word2, updateWord2] = useState("You got Banyo correct!");
+  const [word3, updateWord3] = useState("You got Paliparan correct!");
+  const [word4, updateWord4] = useState("You got Paradahan correct!");
 
   const alertReturn = () => {
     Alert.alert(
@@ -34,7 +34,7 @@ function PlacesQuizScreen ({ navigation }) {
 
   const questions = [
     {
-      question: 'What is parking lot in Tagalog?',
+      question: 'What is Parking lot in Tagalog?',
       options: ['Paradahan', 'Bahay', 'Banyo', 'Paliparan'],
       correctAnswer: 'Paradahan',
       vocabWord: 'Paradahan',
@@ -46,7 +46,7 @@ function PlacesQuizScreen ({ navigation }) {
       vocabWord: 'Bahay',
     },
     {
-      question: 'What is restroom in Tagalog?',
+      question: 'What is Restroom in Tagalog?',
       options: ['Paradahan', 'Bahay', 'Banyo', 'Paliparan'],
       correctAnswer: 'Banyo',
       vocabWord: 'Banyo',
@@ -57,27 +57,33 @@ function PlacesQuizScreen ({ navigation }) {
       correctAnswer: 'Airport',
       vocabWord: 'Paliparan',
     },
+    {
+      question: 'Quiz finished!',
+      options: ['See results'],
+      correctAnswer: 'See results',
+      vocabWord: 'n/a',
+    },
   ];
 
   const checkAnswer = (answer) => {
     const isCorrect = answer === questions[currentQuestion].correctAnswer;
     updateCount(count + 1);
-    updateQuestionCount(questions.length);
+    updateQuestionCount(questions.length - 1);
     if (isCorrect) {
       updateScore(score + 1);
     }
     if (!isCorrect) {
-        if (count == 0){
-          updateWord1("You need to study Paradahan!");
-        }
         if (count == 1){
-          updateWord2("You need to study Bahay!");
+          updateWord4("You need to study Paradahan!");
         }
         if (count == 2){
-          updateWord3("You need to study Banyo!");
+          updateWord1("You need to study Bahay!");
         }
         if (count == 3){
-          updateWord4("You need to study Paliparan!");
+          updateWord2("You need to study Banyo!");
+        }
+        if (count == 4){
+          updateWord3("You need to study Paliparan!");
         }
     }
     nextQuestion = currentQuestion + 1;
