@@ -5,12 +5,12 @@ import { useRoute } from '@react-navigation/native';
 function NumbersLongQuizScreen ({ navigation }) { 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, updateScore] = useState(0);
-  const [count, updateCount] = useState(0);
+  const [count, updateCount] = useState(1);
   const [questionCount, updateQuestionCount] = useState(0);
-  const [word1, updateWord1] = useState("You got isa correct!");
-  const [word2, updateWord2] = useState("You got dalawa correct!");
-  const [word3, updateWord3] = useState("You got tatlo correct!");
-  const [word4, updateWord4] = useState("You got apat correct!");
+  const [word1, updateWord1] = useState("You got Isa correct!");
+  const [word2, updateWord2] = useState("You got Dalawa correct!");
+  const [word3, updateWord3] = useState("You got Tatlo correct!");
+  const [word4, updateWord4] = useState("You got Apat correct!");
 
   const alertReturn = () => {
     Alert.alert(
@@ -34,86 +34,92 @@ function NumbersLongQuizScreen ({ navigation }) {
 
   const questions = [
     {
-      question: 'What is two in Tagalog?',
-      options: ['isa', 'dalawa', 'apat', 'tatlo'],
-      correctAnswer: 'dalawa',
-      vocabWord: 'dalawa',
+      question: 'What is Two in Tagalog?',
+      options: ['Isa', 'Dalawa', 'Apat', 'Tatlo'],
+      correctAnswer: 'Dalawa',
+      vocabWord: 'Dalawa',
     },
     {
-      question: 'What does isa mean?',
-      options: ['one', 'two', 'three', 'four'],
-      correctAnswer: 'one',
-      vocabWord: 'one',
+      question: 'What does Isa mean?',
+      options: ['One', 'Two', 'Three', 'Four'],
+      correctAnswer: 'One',
+      vocabWord: 'Isa',
     },
     {
-      question: 'What is one in Tagalog?',
-      options: ['dalawa', 'apat', 'isa', 'tatlo'],
-      correctAnswer: 'isa',
-      vocabWord: 'isa',
+      question: 'What is One in Tagalog?',
+      options: ['Dalawa', 'Apat', 'Isa', 'Tatlo'],
+      correctAnswer: 'Isa',
+      vocabWord: 'Isa',
     },
     {
-      question: 'What does apat mean?',
-      options: ['one', 'two', 'three', 'four'],
-      correctAnswer: 'four',
-      vocabWord: 'apat',
+      question: 'What does Apat mean?',
+      options: ['One', 'Two', 'Three', 'Four'],
+      correctAnswer: 'Four',
+      vocabWord: 'Apat',
     },
     {
-      question: 'What does tatlo mean?',
-      options: ['one', 'two', 'three', 'four'],
-      correctAnswer: 'three',
-      vocabWord: 'tatlo',
+      question: 'What does Tatlo mean?',
+      options: ['One', 'Two', 'Three', 'Four'],
+      correctAnswer: 'Three',
+      vocabWord: 'Tatlo',
     },
     {
-      question: 'What is four in Tagalog?',
-      options: ['dalawa', 'isa', 'tatlo', 'apat'],
-      correctAnswer: 'apat',
-      vocabWord: 'apat',
+      question: 'What is Four in Tagalog?',
+      options: ['Dalawa', 'Isa', 'Tatlo', 'Apat'],
+      correctAnswer: 'Apat',
+      vocabWord: 'Apat',
     },
     {
-      question: 'What does dalawa mean?',
-      options: ['one', 'two', 'three', 'four'],
-      correctAnswer: 'two',
-      vocabWord: 'dalawa',
+      question: 'What does Dalawa mean?',
+      options: ['One', 'Two', 'Three', 'Four'],
+      correctAnswer: 'Two',
+      vocabWord: 'Dalawa',
     },
     {
-      question: 'What is three in Tagalog?',
-      options: ['tatlo', 'apat', 'dalawa', 'isa'],
-      correctAnswer: 'tatlo',
-      vocabWord: 'tatlo',
+      question: 'What is Three in Tagalog?',
+      options: ['Tatlo', 'Apat', 'Dalawa', 'Isa'],
+      correctAnswer: 'Tatlo',
+      vocabWord: 'Tatlo',
+    },
+    {
+      question: 'Quiz finished!',
+      options: ['See results'],
+      correctAnswer: 'See results',
+      vocabWord: 'n/a',
     },
   ];
 
   const checkAnswer = (answer) => {
     const isCorrect = answer === questions[currentQuestion].correctAnswer;
     updateCount(count + 1);
-    updateQuestionCount(questions.length);
+    updateQuestionCount(questions.length - 1);
     if (isCorrect) {
       updateScore(score + 1);
     }
     if (!isCorrect) {
-        if (count == 0){
-          updateWord2("You need to study dalawa!");
-        }
         if (count == 1){
-          updateWord1("You need to study isa!");
+          updateWord2("You need to study Dalawa!");
         }
         if (count == 2){
-          updateWord1("You need to study isa!");
+          updateWord1("You need to study Isa!");
         }
         if (count == 3){
-          updateWord4("You need to study apat!");
+          updateWord1("You need to study Isa!");
         }
         if (count == 4){
-          updateWord3("You need to study tatlo!");
+          updateWord4("You need to study Apat!");
         }
         if (count == 5){
-          updateWord4("You need to study apat!");
+          updateWord3("You need to study Tatlo!");
         }
         if (count == 6){
-          updateWord2("You need to study dalawa!");
+          updateWord4("You need to study Apat!");
         }
         if (count == 7){
-          updateWord3("You need to study tatlo!");
+          updateWord2("You need to study Dalawa!");
+        }
+        if (count == 8){
+          updateWord3("You need to study Tatlo!");
         }
     }
     nextQuestion = currentQuestion + 1;
