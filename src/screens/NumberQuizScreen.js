@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, SafeAreaView, Button, View, Text, TouchableOpacity } from 'react-native';
+import { Alert, StyleSheet, SafeAreaView, Button, View, Text, TouchableOpacity } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 
 function NumberQuizScreen ({ navigation }) { 
@@ -11,6 +11,26 @@ function NumberQuizScreen ({ navigation }) {
   const [word2, updateWord2] = useState("You got tatlo correct!");
   const [word3, updateWord3] = useState("You got apat correct!");
   const [word4, updateWord4] = useState("You got dalawa correct!");
+
+  const alertReturn = () => {
+    Alert.alert(
+      // title
+      'Return to Topics',
+      // text
+      'Do you want to return to the Topics screen? You will lose your results.',
+      [
+        {
+          text: 'Yes',
+          onPress: () => navigation.navigate('Topics')
+        },
+        {
+          text: 'No',
+          onPress: () => console.log('No') ,style: 'cancel'
+        },
+      ],
+      {cancelable: false},
+    );
+  };
 
   const questions = [
     {
@@ -40,13 +60,13 @@ function NumberQuizScreen ({ navigation }) {
   ];
 
   const checkAnswer = (answer) => {
-    const isCorrect = answer === questions[currentQuestion].correctAnswer;
-    updateCount(count + 1);
-    updateQuestionCount(questions.length);
-    if (isCorrect) {
-      updateScore(score + 1);
-    }
-    if (!isCorrect) {
+      const isCorrect = answer === questions[currentQuestion].correctAnswer;
+      updateCount(count + 1);
+      updateQuestionCount(questions.length);
+      if (isCorrect) {
+        updateScore(score + 1)
+      }
+      if (!isCorrect) {
         if (count == 0){
           updateWord1("You need to study isa!");
         }
@@ -59,7 +79,7 @@ function NumberQuizScreen ({ navigation }) {
         if (count == 3){
           updateWord4("You need to study dalawa!");
         }
-    }
+      }
     nextQuestion = currentQuestion + 1;
   };
 
@@ -84,6 +104,11 @@ function NumberQuizScreen ({ navigation }) {
         <Text style={styles.textButton}>{option}</Text>
         </TouchableOpacity>
       ))}
+      <TouchableOpacity 
+        style={styles.returnButton}
+        onPress={() => alertReturn()} >
+        <Text style={styles.textButton}>Return to Topics</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };
@@ -106,6 +131,12 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 10,
+    alignItems: "center",
+    backgroundColor: "#0BB3FC",
+    padding: 12
+  },
+  returnButton: {
+    marginTop: 50,
     alignItems: "center",
     backgroundColor: "#0BB3FC",
     padding: 12
