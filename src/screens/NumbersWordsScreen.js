@@ -5,10 +5,10 @@ function NumbersWordsScreen({ navigation }) {
     return (
       <SafeAreaView style={styles.regular}>
         <Text style={styles.title}>List of Words:</Text>
-        <Text style={styles.title}>isa = one</Text>
-        <Text style={styles.title}>dalawa = two</Text>
-        <Text style={styles.title}>tatlo = three</Text>
-        <Text style={styles.title}>apat = four</Text>
+        <Text style={styles.title}>Isa = One</Text>
+        <Text style={styles.title}>Dalawa = Two</Text>
+        <Text style={styles.title}>Tatlo = Three</Text>
+        <Text style={styles.title}>Apat = Four</Text>
         <TouchableOpacity 
         style={styles.button}
         onPress={() => navigation.navigate('NumberAudio')} >
