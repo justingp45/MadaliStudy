@@ -13,7 +13,7 @@ function AboutScreen({ navigation }) {
       <Text style={styles.text} onPress={() => Linking.openURL('https://docs.google.com/spreadsheets/d/1WndWgznekLAL0m5b__LL_74Aezu-elTRx6VEC9nDR84/edit?usp=sharing')}>Press to open link</Text>
       <Text> </Text>
       <Text style={styles.title}>Philippines flag from:</Text>
-      <Text style={styles.text}>https://www.stockio.com/free-clipart/flag-of-the-philippines</Text>
+      <Text style={styles.text} onPress={() => Linking.openURL('https://www.stockio.com/free-clipart/flag-of-the-philippines')}>https://www.stockio.com/free-clipart/flag-of-the-philippines</Text>
       <TouchableOpacity 
         style={styles.button}
         onPress={() => navigation.navigate('Home')} >
