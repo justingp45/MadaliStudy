@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, SafeAreaView, Button, View, Text, TouchableOpacity } from 'react-native';
+import { Linking, StyleSheet, SafeAreaView, Button, View, Text, TouchableOpacity } from 'react-native';
 
 function AboutScreen({ navigation }) {
   return (
@@ -10,7 +10,7 @@ function AboutScreen({ navigation }) {
       <Text style={styles.text}>It's a study app for common Tagalog phrases and words. Choose a topic and take a small quiz in order to improve memorization, and see which words you got incorrect so that you know what terms to focus on. It's a great opportunity to start learning Tagalog!</Text>
       <Text> </Text>
       <Text style={styles.title}>Link to Proposal:</Text>
-      <Text style={styles.text}>https://docs.google.com/spreadsheets/d/1WndWgznekLAL0m5b__LL_74Aezu-elTRx6VEC9nDR84/edit?usp=sharing</Text>
+      <Text style={styles.text} onPress={() => Linking.openURL('https://docs.google.com/spreadsheets/d/1WndWgznekLAL0m5b__LL_74Aezu-elTRx6VEC9nDR84/edit?usp=sharing')}>Press to open link</Text>
       <Text> </Text>
       <Text style={styles.title}>Philippines flag from:</Text>
       <Text style={styles.text}>https://www.stockio.com/free-clipart/flag-of-the-philippines</Text>
